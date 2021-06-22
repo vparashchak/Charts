@@ -848,6 +848,13 @@ open class LineChartRenderer: LineRadarRenderer
                 components += [r, g, b, a]
             }
         
+        let gradientLocations: [CGFloat] = gradientPositions.reversed()
+            
+        /*
+         The following lines are from the v4.0.1 and they are producing
+         the problem when drawing the gradient line - the gradient position
+         isn't right, it always starts from 0.66.
+         
         var gradientLocations: [CGFloat] = gradientPositions.reversed()
             .map { (position) in
                 let location = CGPoint(x: boundingBox.minX, y: position)
@@ -856,6 +863,7 @@ open class LineChartRenderer: LineRadarRenderer
                     / (boundingBox.maxY - boundingBox.minY)
                 return normalizedLocation.clamped(to: 0...1)
             }
+         */
         
         let baseColorSpace = CGColorSpaceCreateDeviceRGB()
         guard let gradient = CGGradient(
