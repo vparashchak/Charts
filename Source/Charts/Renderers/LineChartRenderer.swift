@@ -173,6 +173,7 @@ open class LineChartRenderer: LineRadarRenderer
         }
         
         context.saveGState()
+        defer { context.restoreGState() }
         
         if dataSet.isDrawFilledEnabled
         {
@@ -242,6 +243,7 @@ open class LineChartRenderer: LineRadarRenderer
         }
         
         context.saveGState()
+        defer { context.restoreGState() }
         
         if dataSet.isDrawFilledEnabled
         {
